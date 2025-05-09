@@ -1,0 +1,16 @@
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination .page-link {
+  cursor: pointer;
+}
+
+.pagination .active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.pagination .disabled .page-link {
+  cursor: not-allowed;
+}
