@@ -1,1 +1,62 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg bg-info-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary-emphasis" href="#">
+      <i class="bi bi-person-workspace"></i> ClientGER
+    </a>
+
+    <!-- Botão do menu hambúrguer -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Conteúdo colapsável -->
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
+        <li class="nav-item">
+          <a
+            class="nav-link active text-primary-emphasis"
+            aria-current="page"
+            href="#"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary-emphasis" href="#">Inserir cliente</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-primary-emphasis"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Detalhes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Relátorio</a></li>
+            <li><a class="dropdown-item" href="#">Histórico de Compras</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Fechar</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <button class="btn btn-outline-success" type="submit">
+          Entrar em contato
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
