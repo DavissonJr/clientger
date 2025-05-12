@@ -6,7 +6,10 @@
         class="alert d-flex justify-content-between"
         style="background-color: #052c65; border-color: #052c65; color: white"
       >
-        <h4 class="m-0">Total de Clientes: {{ totalClientes }}</h4>
+        <h4 class="m-0">
+          <i class="bi bi-person-lines-fill fs-2 me-3"></i>Total de Clientes:
+          {{ totalClientes }}
+        </h4>
         <i
           class="bi bi-arrow-clockwise fs-4 text-white"
           style="cursor: pointer"
@@ -15,7 +18,26 @@
         ></i>
       </div>
 
+      <!-- Botão para Mostrar/Esconder Tabela -->
+      <div class="d-flex justify-content-between mb-3">
+        <button
+          class="btn"
+          style="background-color: #052c65; color: white"
+          (click)="toggleTabela()"
+        >
+          {{ tabelaVisivel ? "Ocultar Tabela" : "Mostrar Tabela" }}
+        </button>
+        <button
+          class="btn"
+          style="background-color: #052c65; color: white"
+          (click)="exportarCSV()"
+        >
+          Exportar para CSV
+        </button>
+      </div>
+
       <!-- Tabela de Clientes -->
+      @if (tabelaVisivel) {
       <div class="card border-primary-emphasis">
         <div
           class="card-header"
@@ -33,16 +55,39 @@
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Telefone</th>
+                <th>Status</th>
                 <th class="text-center">Ações</th>
               </tr>
             </thead>
             <tbody class="text-primary-emphasis">
-              @for (cliente of clientes; track clientes) {
+              @for (cliente of clientes; track cliente.id) {
               <tr>
                 <td>{{ cliente.id }}</td>
                 <td>{{ cliente.nome }}</td>
                 <td>{{ cliente.cpf | mask : "000.000.000-00" }}</td>
                 <td>{{ cliente.telefone | mask : "(00) 00000-0000" }}</td>
+                <!-- Status do Cliente -->
+                <td class="d-flex justify-content-between align-items-center">
+                  <!-- Status Badge -->
+                  <span
+                    class="badge mx-auto w-25 text-dark"
+                    [ngClass]="{
+                      'bg-success': cliente.status === 'ativo',
+                      'bg-danger': cliente.status === 'inativo'
+                    }"
+                  >
+                    {{ cliente.status === "ativo" ? "Ativo" : "Inativo" }}
+                  </span>
+
+                  <!-- Button to toggle status -->
+                  <button
+                    class="btn btn-sm"
+                    style="background-color: #052c65; color: white"
+                    (click)="toggleStatus(cliente)"
+                  >
+                    Alterar Status
+                  </button>
+                </td>
                 <td class="text-center gap-3">
                   <i
                     class="bi bi-pencil-square"
@@ -68,6 +113,15 @@
               }
             </tbody>
           </table>
+
+          <!-- Barra de Carregamento -->
+          @if (loading) {
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Carregando...</span>
+            </div>
+          </div>
+          }
 
           <!-- Paginação -->
           <div class="d-flex justify-content-center">
@@ -123,6 +177,7 @@
           </div>
         </div>
       </div>
+      }
     </div>
   </div>
 </div>
