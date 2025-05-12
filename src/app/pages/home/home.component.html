@@ -20,9 +20,8 @@
               <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Email</th>
+                <th>CPF</th>
                 <th>Telefone</th>
-                <th>Data de Cadastro</th>
               </tr>
             </thead>
             <tbody>
@@ -30,9 +29,10 @@
               <tr>
                 <td>{{ cliente.id }}</td>
                 <td>{{ cliente.nome }}</td>
-                <td>{{ cliente.email }}</td>
-                <td>{{ cliente.telefone }}</td>
-                <td>{{ cliente.dataCadastro | date }}</td>
+                <td>{{ cliente.cpf | mask : "000.000.000-00" }}</td>
+                <!-- Máscara de CPF -->
+                <td>{{ cliente.telefone | mask : "(00) 00000-0000" }}</td>
+                <!-- Máscara de Telefone -->
               </tr>
               }
             </tbody>
@@ -42,7 +42,7 @@
             <nav aria-label="Page navigation">
               <ul class="pagination">
                 <li
-                  class="page-item"
+                  class="page-item text-primary-emphasis"
                   [ngClass]="{ disabled: currentPage === 1 }"
                 >
                   <button
@@ -52,16 +52,20 @@
                     Anterior
                   </button>
                 </li>
-                @for (i of [].constructor(totalPages); track i) {
+
+                <!-- Aqui estamos utilizando @for de acordo com sua solicitação -->
+                @for (i of pages; track i) {
                 <li
                   class="page-item"
                   [ngClass]="{ active: currentPage === i + 1 }"
                 >
                   <button class="page-link" (click)="changePage(i + 1)">
                     {{ i + 1 }}
+                    <!-- Exibindo o número correto da página -->
                   </button>
                 </li>
                 }
+
                 <li
                   class="page-item"
                   [ngClass]="{ disabled: currentPage === totalPages }"

@@ -10,9 +10,8 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getClientes(page: number, pageSize: number): Observable<any> {
-    return this.http.get<any>(
-      `${this.apiUrl}?page=${page}&pageSize=${pageSize}`
-    );
+  // Método para buscar todos os clientes
+  getClientes(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
