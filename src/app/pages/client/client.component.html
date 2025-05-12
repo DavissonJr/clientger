@@ -33,6 +33,7 @@
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Telefone</th>
+                <th class="text-center">Ações</th>
               </tr>
             </thead>
             <tbody class="text-primary-emphasis">
@@ -42,6 +43,27 @@
                 <td>{{ cliente.nome }}</td>
                 <td>{{ cliente.cpf | mask : "000.000.000-00" }}</td>
                 <td>{{ cliente.telefone | mask : "(00) 00000-0000" }}</td>
+                <td class="text-center gap-3">
+                  <i
+                    class="bi bi-pencil-square"
+                    style="
+                      color: #052c65;
+                      font-size: 1.5rem;
+                      cursor: pointer;
+                      margin-right: 10px;
+                    "
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Editar"
+                  ></i>
+                  <i
+                    class="bi bi-trash"
+                    style="font-size: 1.5rem; cursor: pointer; color: #052c65"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Excluir"
+                  ></i>
+                </td>
               </tr>
               }
             </tbody>
