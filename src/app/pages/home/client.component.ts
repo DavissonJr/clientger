@@ -6,13 +6,13 @@ import { NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: './client.component.html',
   standalone: true,
   imports: [CommonModule, FormsModule, NgxMaskPipe],
   providers: [provideNgxMask()],
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./client.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class ClientComponent implements OnInit {
   clientes: any[] = [];
   totalClientes: number = 0;
   currentPage: number = 1;
