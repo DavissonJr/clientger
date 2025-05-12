@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/services/client.service';
 import { CommonModule } from '@angular/common';
@@ -8,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-home',
   templateUrl: './home.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule],
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
@@ -37,10 +36,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  // Método para alterar a página
   changePage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
-      // Garantir que a página seja válida
       this.currentPage = page;
       this.loadClientes();
     }
