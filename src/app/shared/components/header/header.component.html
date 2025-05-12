@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg bg-info-subtle">
+<nav class="navbar navbar-expand-lg" style="background-color: #052c65">
   <div class="container-fluid">
-    <a class="navbar-brand text-primary-emphasis" href="#">
+    <a class="navbar-brand text-white" href="#">
       <i class="bi bi-bucket"></i> ClientGER - ChuteOBalde
     </a>
 
     <!-- Botão do menu hambúrguer -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
@@ -24,19 +24,16 @@
     >
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
         <li class="nav-item">
-          <a
-            class="nav-link active text-primary-emphasis"
-            aria-current="page"
-            href="#"
+          <a class="nav-link active text-white" aria-current="page" href="#"
             >Home</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link text-primary-emphasis" href="#">Inserir cliente</a>
+          <a class="nav-link text-white" href="#">Inserir cliente</a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle text-primary-emphasis"
+            class="nav-link dropdown-toggle text-white"
             href="#"
             role="button"
             data-bs-toggle="dropdown"
@@ -44,16 +41,30 @@
           >
             Detalhes
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Relátorio</a></li>
-            <li><a class="dropdown-item" href="#">Histórico de Compras</a></li>
+          <ul
+            class="dropdown-menu border-0 shadow-sm"
+            style="background-color: #f8f9fa"
+          >
+            <li>
+              <a class="dropdown-item text-primary-emphasis" href="#"
+                >Relatório</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item text-primary-emphasis" href="#"
+                >Histórico de Compras</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Fechar</a></li>
+            <li>
+              <a class="dropdown-item text-primary-emphasis" href="#">Fechar</a>
+            </li>
           </ul>
         </li>
       </ul>
+
       <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit">
+        <button class="btn btn-outline-light" type="submit">
           Entrar em contato
         </button>
       </form>

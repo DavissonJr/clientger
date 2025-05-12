@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit {
   clientes: any[] = [];
   totalClientes: number = 0;
   currentPage: number = 1;
-  pageSize: number = 6; // Tamanho da página
+  pageSize: number = 6;
   totalPages: number = 0;
-  allClientes: any[] = []; // Armazenar todos os clientes sem paginar
+  allClientes: any[] = [];
 
   constructor(private clientService: ClientService) {}
 
@@ -30,9 +30,9 @@ export class HomeComponent implements OnInit {
     this.clientService.getClientes().subscribe(
       (response) => {
         this.allClientes = response; // Armazenar todos os clientes recebidos
-        this.totalClientes = this.allClientes.length; // Total de clientes
+        this.totalClientes = this.allClientes.length;
         this.totalPages = Math.ceil(this.totalClientes / this.pageSize); // Calcular o total de páginas
-        this.updatePageData(); // Atualiza os dados da página atual
+        this.updatePageData();
       },
       (error) => {
         console.error('Erro ao carregar clientes', error);
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   changePage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
-      this.updatePageData(); // Atualiza os dados da página quando o usuário mudar de página
+      this.updatePageData();
     }
   }
 }
