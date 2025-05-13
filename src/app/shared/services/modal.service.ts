@@ -19,7 +19,7 @@ export class ModalService {
       cancelButtonText: 'Cancelar',
       background: '#ffffff',
       color: '#052c65',
-      iconColor: '#052c65', 
+      iconColor: '#052c65',
       customClass: {
         confirmButton: 'custom-confirm-button',
         cancelButton: 'custom-cancel-button',
@@ -37,6 +37,18 @@ export class ModalService {
           confirmButtonColor: '#052c65',
         });
       }
+    });
+  }
+
+  mostrarSucesso(mensagem: string): void {
+    Swal.fire({
+      title: 'Sucesso!',
+      text: mensagem,
+      icon: 'success',
+      background: '#ffffff',
+      color: '#052c65',
+      iconColor: '#052c65',
+      confirmButtonColor: '#052c65',
     });
   }
 }
