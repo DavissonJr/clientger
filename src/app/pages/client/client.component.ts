@@ -33,9 +33,17 @@ export class ClientComponent implements OnInit {
     this.loadClientes();
   }
 
-  confirmarExclusao(): void {
+  confirmarExclusao(id: number): void {
     this.modalService.confirmarExclusao(() => {
-      console.log('Excluindo...');
+      this.clientService.deleteCliente(id).subscribe({
+        next: () => {
+          console.log(`Cliente ${id} excluído com sucesso.`);
+          this.loadClientes(); // Recarrega a lista
+        },
+        error: (err) => {
+          console.error('Erro ao excluir cliente:', err);
+        },
+      });
     });
   }
 
