@@ -1,3 +1,4 @@
+import { ModalService } from './../../shared/services/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../shared/services/client.service';
 import { CommonModule } from '@angular/common';
@@ -23,10 +24,19 @@ export class ClientComponent implements OnInit {
   tabelaVisivel: boolean = true;
   loading: boolean = false;
 
-  constructor(private clientService: ClientService) {}
+  constructor(
+    private clientService: ClientService,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit(): void {
     this.loadClientes();
+  }
+
+  confirmarExclusao(): void {
+    this.modalService.confirmarExclusao(() => {
+      console.log('Excluindo...');
+    });
   }
 
   loadClientes(): void {
