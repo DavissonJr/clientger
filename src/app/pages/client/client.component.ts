@@ -103,4 +103,22 @@ export class ClientComponent implements OnInit {
   toggleTabela(): void {
     this.tabelaVisivel = !this.tabelaVisivel;
   }
+
+  // Função chamada para editar o cliente
+  editarCliente(cliente: any): void {
+    this.modalService.editarCliente(cliente, (clienteAtualizado) => {
+      this.atualizarCliente(clienteAtualizado);
+    });
+  }
+
+  // Atualiza o cliente na lista
+  atualizarCliente(clienteAtualizado: any): void {
+    const index = this.allClientes.findIndex(
+      (c) => c.id === clienteAtualizado.id
+    );
+    if (index !== -1) {
+      this.allClientes[index] = clienteAtualizado;
+      this.updatePageData(); // Atualiza os dados da página após a edição
+    }
+  }
 }
