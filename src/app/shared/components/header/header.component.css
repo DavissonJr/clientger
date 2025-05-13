@@ -1,7 +1,39 @@
+.navbar-nav .nav-item .nav-link {
+  transition: all 0.3s ease;
+  position: relative;
+}
 
-.btn-outline-light:hover{
-  background-color: #f2f2f2;
-  color: #052c65;
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffffff;
+  background: linear-gradient(90deg, #2a3b92, #2b66c0);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: #ffffff;
+}
+
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+  background-color: #f1f3f5;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-light {
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #2a3b92;
+  color: #ffffff;
+  border-color: #2a3b92;
 }
 
 
